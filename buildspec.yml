@@ -6,11 +6,19 @@ phases:
       python: 3.11
   pre_build:
     commands:
+      - echo "Installing dependencies"
       - pip install -r requirements.txt
+      - pip install pylint
+      # Add any other pre-build commands here
   build:
     commands:
-      - python manage.py collectstatic --no-input
-      - python manage.py migrate
+      - echo "No build step required for Django project"
+      # Add any other build commands here, if needed
   post_build:
     commands:
-      - echo "Build completed on `date`"
+      - echo "Running pylint for Python code rating"
+      - pylint $CODEBUILD_SRC_DIR/*.py > pylint_report.txt || true
+      - cat pylint_report.txt
+      - echo "Applying migrations"
+      - python manage.py migrate
+      - echo "Deploying Django project to Elastic Beanstalk"
