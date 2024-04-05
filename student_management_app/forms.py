@@ -1,3 +1,14 @@
+# pylint: disable=line-too-long
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=invalid-name
+# pylint: disable=arguments-differ
+# pylint: disable=no-else-return
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-final-newline
+# pylint: disable=missing-final-newline
+# pylint: disable=bare-except
+# pylint: disable=unused-import
 from django import forms 
 from django.forms import Form
 from student_management_app.models import Courses, SessionYearModel

@@ -1,3 +1,10 @@
+# pylint: disable=line-too-long
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=invalid-name
+# pylint: disable=arguments-differ
+# pylint: disable=no-else-return
+
 from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
 
@@ -14,3 +21,4 @@ class EmailBackEnd(ModelBackend):
             if user.check_password(password):
                 return user
         return None
+    

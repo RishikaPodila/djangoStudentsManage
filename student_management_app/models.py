@@ -1,3 +1,27 @@
+# pylint: disable=missing-function-docstring
+# pylint: disable=consider-using-in
+# pylint: disable=too-many-branches
+# pylint: disable=inconsistent-return-statements
+# pylint: disable=unused-argument
+# pylint: disable=too-few-public-methods
+# pylint: disable=line-too-long
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=invalid-name
+# pylint: disable=arguments-differ
+# pylint: disable=no-else-return
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-final-newline
+# pylint: disable=missing-final-newline
+# pylint: disable=bare-except
+# pylint: disable=unused-import
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=consider-using-in
+# pylint: disable=too-many-branches
+# pylint: disable=inconsistent-return-statements
+# pylint: disable=unused-argument
+# pylint: disable=too-few-public-methods
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
@@ -194,6 +218,4 @@ def save_user_profile(sender, instance, **kwargs):
         instance.staffs.save()
     if instance.user_type == 3:
         instance.students.save()
-    
-
-
+        

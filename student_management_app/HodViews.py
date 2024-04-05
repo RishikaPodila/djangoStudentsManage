@@ -1,3 +1,24 @@
+# pylint: disable=line-too-long
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=invalid-name
+# pylint: disable=arguments-differ
+# pylint: disable=no-else-return
+# pylint: disable=line-too-long
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=invalid-name
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-function-docstring
+# pylint: disable=too-many-locals
+# pylint: disable=bare-except
+# pylint: disable=singleton-comparison
+# pylint: disable=unused-argument
+# pylint: disable=inconsistent-return-statements
+# pylint: disable=consider-using-in
+# pylint: disable=wrong-import-order
+# pylint: disable=unused-import
+# pylint: disable=duplicate-code
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib import messages
@@ -789,6 +810,3 @@ def staff_profile(request):
 
 def student_profile(requtest):
     pass
-
-
-

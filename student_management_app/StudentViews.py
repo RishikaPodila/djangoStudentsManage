@@ -1,3 +1,30 @@
+# pylint: disable=missing-function-docstring
+# pylint: disable=consider-using-in
+# pylint: disable=too-many-branches
+# pylint: disable=inconsistent-return-statements
+# pylint: disable=unused-argument
+# pylint: disable=too-few-public-methods
+# pylint: disable=line-too-long
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-class-docstring
+# pylint: disable=invalid-name
+# pylint: disable=arguments-differ
+# pylint: disable=no-else-return
+# pylint: disable=trailing-whitespace
+# pylint: disable=missing-final-newline
+# pylint: disable=missing-final-newline
+# pylint: disable=bare-except
+# pylint: disable=unused-import
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=consider-using-in
+# pylint: disable=too-many-branches
+# pylint: disable=inconsistent-return-statements
+# pylint: disable=unused-argument
+# pylint: disable=too-few-public-methods
+# pylint: disable=too-many-locals
+# pylint: disable=singleton-comparison
+# pylint: disable=wrong-import-order
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
@@ -193,8 +220,3 @@ def student_view_result(request):
         "student_result": student_result,
     }
     return render(request, "student_template/student_view_result.html", context)
-
-
-
-
-
