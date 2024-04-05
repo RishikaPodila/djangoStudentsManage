@@ -4,21 +4,46 @@ phases:
   install:
     runtime-versions:
       python: 3.11
-  pre_build:
     commands:
-      - echo "Installing dependencies"
+      # Install necessary dependencies (adjust as needed)
+      - sudo yum update -y
+      - sudo yum install -y curl jq python3-pip --allowerasing
+      
+      - pip install --upgrade pip
       - pip install -r requirements.txt
       - pip install pylint
-      # Add any other pre-build commands here
+      - echo "Installing corretto (OpenJDK) version 21 ..."
+      - export JAVA_HOME="$JAVA_21_HOME"
+      - export JDK_HOME="$JDK_21_HOME"
+      # - for tool_path in "$JAVA_HOME"/bin/*
+      - export GRADLE_VERSION=$GRADLE_85_VERSION
+      - unlink /usr/bin/gradle
+      - ln -s /usr/local/gradle-$GRADLE_85_VERSION/bin/gradle /usr/bin/gradle
+      - yum update -y
+      - yum install -y jq
+      - retry_count=3
+      - for i in $(seq 1 $retry_count); do wget https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz && break || sleep 10; done
+      - tar xzf apache-maven-3.5.4-bin.tar.gz || true
+      - ln -s apache-maven-3.5.4 maven
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - mvn sonar:sonar -Dsonar.login=4fbc61e1d8b02d5df3f3772fa810388bba200144 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=pavan1636 -Dsonar.organization=pavan1636_librarymanage || true
+      - sleep 5
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=24devopsproject >result.json
+      # Set retry count variable
+      - retry_count=3
+      - cat result.json
+
   build:
     commands:
-      - echo "No build step required for Django project"
-      # Add any other build commands here, if needed
+      # Run pylint
+      - pylint $CODEBUILD_SRC_DIR/*.py
+      - pylint $CODEBUILD_SRC_DIR/library/*.py
+
   post_build:
     commands:
-      - echo "Running pylint for Python code rating"
-      - pylint $CODEBUILD_SRC_DIR/*.py > pylint_report.txt || true
-      - cat pylint_report.txt
-      - echo "Applying migrations"
-      - python manage.py migrate
-      - echo "Deploying Django project to Elastic Beanstalk"
+      # Your post-build commands here
+
+artifacts:
+  files:
+    - '**/*'
