@@ -38,7 +38,7 @@ phases:
     commands:
       # Run pylint
       - pylint $CODEBUILD_SRC_DIR/*.py
-      - pylint $CODEBUILD_SRC_DIR/library/*.py
+      - pylint $CODEBUILD_SRC_DIR/student_management_app/*.py
 
   post_build:
     commands:
