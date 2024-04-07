@@ -27,7 +27,7 @@ phases:
       - ln -s apache-maven-3.5.4 maven
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
-      - mvn sonar:sonar -Dsonar.login=4fbc61e1d8b02d5df3f3772fa810388bba200144 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=pavan1636 -Dsonar.organization=pavan1636_librarymanage || true
+      - mvn sonar:sonar -Dsonar.login=0531862656cc2393505b0e4d2b2afdb0284eceb5 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=23214368_Rishika -Dsonar.organization=23214368_Rishika_djangoStudentsManage || true
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=24devopsproject >result.json
       # Set retry count variable
