@@ -25,7 +25,7 @@ SECRET_KEY = 'sdha!rx+p*@u9gs31q8&(l458_28(7crlli4*7%pw=^(&q1c3m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['demosnapvibe-env.eba-xn6fmsnz.eu-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['django-ci-cd-pro-env.eba-uhywibpr.eu-north-1.elasticbeanstalk.com']
 
 
 # Application definition
